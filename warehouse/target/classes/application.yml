@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 8
+      max-idle: 8
+      initial-size: 10
+    tomcat:
+      max-active: 20
+  #静态资源配置
+  web:
+    resources:
+      static-locations: classpath:/static/
+mybatis:
+  type-aliases-package: com.example.warehouse.bean
+  mapper-locations: classpath:mapper/*.xml
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+logging:
+  level:
+    com:
+       example:
+         mapper: debug
+
